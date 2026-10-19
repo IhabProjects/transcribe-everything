@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transcribe-everything"
+version = "0.1.0"
+description = "Transcribe hours of audio in under a minute for cents, using Groq's Whisper API. Resumable, chunked, outputs TXT/SRT/JSON."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ihab El Bani" }]
+requires-python = ">=3.9"
+dependencies = ["groq>=0.11", "python-dotenv>=1.0", "tqdm>=4.66"]
+keywords = ["whisper", "groq", "transcription", "speech-to-text", "subtitles", "srt", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+
+[project.urls]
+Homepage = "https://github.com/IhabProjects/transcribe-everything"
+Issues = "https://github.com/IhabProjects/transcribe-everything/issues"
+
+[project.scripts]
+transcribe = "transcribe:cli"
+
+[tool.setuptools]
+py-modules = ["transcribe"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "UP", "I"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
